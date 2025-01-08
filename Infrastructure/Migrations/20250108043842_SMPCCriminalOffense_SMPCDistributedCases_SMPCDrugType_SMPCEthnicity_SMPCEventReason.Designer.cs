@@ -4,6 +4,7 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(SmpcDbContext))]
-    partial class SmpcDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250108043842_SMPCCriminalOffense_SMPCDistributedCases_SMPCDrugType_SMPCEthnicity_SMPCEventReason")]
+    partial class SMPCCriminalOffense_SMPCDistributedCases_SMPCDrugType_SMPCEthnicity_SMPCEventReason
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

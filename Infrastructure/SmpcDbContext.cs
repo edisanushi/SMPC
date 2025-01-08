@@ -25,6 +25,16 @@ namespace Infrastructure
         public virtual DbSet<SmpcAccidentType> SmpcAccidentTypes { get; set; }
         public virtual DbSet<SmpcCaller> SmpcCallers { get; set; }
         public virtual DbSet<SmpcCase> SmpcCases { get; set; }
+        public virtual DbSet<SmpcClosedCase> SmpcClosedCases { get; set; }
+        public virtual DbSet<SmpcConnection> SmpcConnections { get; set; }
+        public virtual DbSet<SmpcConsequence> SmpcConsequences { get; set; }
+        public virtual DbSet<SmpcCooporationType> CooperationTypes { get; set; }
+        public virtual DbSet<SmpcUser> SmpcUsers { get; set; }
+        public virtual DbSet<SmpcCriminalOffense> SmpcCriminalOffenses { get; set; }
+        public virtual DbSet<SmpcDistributedCase> SmpcDistributedCases { get; set; }
+        public virtual DbSet<SmpcDrugType> SmpcDrugTypes { get; set; }
+        public virtual DbSet<SmpcEthnicity> SmpcEthnicities { get; set; }
+        public virtual DbSet<SmpcEventReason> SmpcEventReasons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -85,6 +95,18 @@ namespace Infrastructure
                .HasOne(z => z.User)
                .WithMany()
                .HasForeignKey(z => z.IdUnUser)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<SmpcDistributedCase>()
+               .HasOne(z => z.Case)
+               .WithMany()
+               .HasForeignKey(z => z.IDSMPCCase)
+               .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<SmpcDistributedCase>()
+               .HasOne(z => z.Zone)
+               .WithMany()
+               .HasForeignKey(z => z.IDSMPCCoverageZone)
                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
