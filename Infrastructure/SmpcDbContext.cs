@@ -35,7 +35,16 @@ namespace Infrastructure
         public virtual DbSet<SmpcDrugType> SmpcDrugTypes { get; set; }
         public virtual DbSet<SmpcEthnicity> SmpcEthnicities { get; set; }
         public virtual DbSet<SmpcEventReason> SmpcEventReasons { get; set; }
-
+        public virtual DbSet<SmpcEvidenceMethod> SmpcEvidenceMethods { get; set; }
+        public virtual DbSet<SmpcEvientInvolvement> SmpcEvientInvolvements { get; set; }
+        public virtual DbSet<SmpcEyeColor> SmpcEyeColors { get; set; }
+        public virtual DbSet<SmpcHairColor> SmpcHairColors { get; set; }
+        public virtual DbSet<SmpcLighting> SmpcLightings { get; set; }
+        public virtual DbSet<SmpcMentalHealth> SmpcMentalHealths { get; set; }
+        public virtual DbSet<SmpcModusOperandus> SmpcModusOperandus { get; set; }
+        public virtual DbSet<SmpcNonCriminalCase> SmpcNonCriminalCases { get; set; }
+        public virtual DbSet<SmpcObjectClassification> SmpcObjectClassifications { get; set; }
+        public virtual DbSet<SmpcOrganizationType> SmpcOrganizationTypes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SmpcZone>()
