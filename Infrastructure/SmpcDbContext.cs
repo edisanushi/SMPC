@@ -63,6 +63,30 @@ namespace Infrastructure
                 .HasForeignKey(z => z.IDSMPCCoverageZone)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<SmpcClosedCase>()
+               .HasOne(z => z.CallType)
+               .WithMany()
+               .HasForeignKey(z => z.IDSMPCVerification)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<SmpcClosedCase>()
+               .HasOne(z => z.CallReason)
+               .WithMany()
+               .HasForeignKey(z => z.IDSMPCVerificatonResult)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<SmpcClosedCase>()
+               .HasOne(z => z.Case)
+               .WithMany()
+               .HasForeignKey(z => z.IDSMPCCase)
+               .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<SmpcClosedCase>()
+               .HasOne(z => z.User)
+               .WithMany()
+               .HasForeignKey(z => z.IdUnUser)
+               .OnDelete(DeleteBehavior.Cascade);
+
             base.OnModelCreating(modelBuilder);
         }
 
